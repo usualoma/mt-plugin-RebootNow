@@ -1,0 +1,20 @@
+id: RebootNow
+name: RebootNow
+version: 1.00
+description: <__trans phrase="This plugin add "Reboot" button to the Movable Type.">
+author_name: <__trans phrase="Taku AMANO">
+author_link: http://taaas.jp/
+plugin_link: https://github.com/usualoma/mt-plugin-RebootNow/
+
+l10n_lexicon:
+  ja:
+    Reboot: "再起動"
+    RebootComplete: "再起動しました"
+
+applications:
+  cms:
+    methods:
+      reboot_now: $RebootNow::RebootNow::reboot_now
+
+callbacks:
+  MT::App::CMS::template_param.system_check: $RebootNow::RebootNow::template_param_system_check

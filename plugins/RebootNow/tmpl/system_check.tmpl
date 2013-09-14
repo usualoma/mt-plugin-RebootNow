@@ -1,0 +1,19 @@
+<button id="reboot-now" title="<__trans phrase="Reboot" />" class="action primary button first-child last-child"><__trans phrase="Reboot" /></button>
+<script type="text/javascript">
+jQuery(function($) {
+    $('#reboot-now').click(function() {
+        location.href = CMSScriptURI + "?__mode=reboot_now";
+        return false;
+    });
+    <mt:If name="reboot_complete">
+    $('#main').prepend($('#reboot-complete'));
+    </mt:If>
+});
+</script>
+<mt:If name="reboot_complete">
+  <mtapp:statusmsg
+     id="reboot-complete"
+     class="success">
+     <__trans phrase="RebootComplete" />
+  </mtapp:statusmsg>
+</mt:If>
