@@ -26,6 +26,9 @@ sub reboot_now {
 sub template_param_system_check {
     my ( $cb, $app, $param, $tmpl ) = @_;
 
+    return 1
+        unless $app->user->is_superuser();
+
     $param->{reboot_complete} = !!$app->param('reboot_complete');
 
     my $place_holder = $tmpl->getElementById('system_check');
